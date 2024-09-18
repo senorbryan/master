@@ -12,8 +12,7 @@ key = False
 exit = False
 checkout = ""
 
-#Tuple, Dictionary and List
-registrar = ("Bryan", "Josh", "Sandy", "Katherine")
+registrar = ["Bryan", "Josh", "Sandy", "Katherine"]
 eScripts = {
     "Amanda Bayer": "Omeprazole - 40 MG",
     "Brandi Jones": "Loratadine - 5 MG",
@@ -22,7 +21,7 @@ eScripts = {
     "Randy Roger": "Tamsulosin - 0.4 MG",
     "Wendy Williams": "Vitamin D3 - 50,000 IU"
 }
-CONTROLLED = ["Alprazolam - 10 MG Tablets", "Buprenorphine 4MG/1MG", "Lorazepam 1 MG Tablets", "Pregabalin 75 MG Capsules", "Zolpidem 5 MG Tablets"]
+CONTROLLED = ["Alprazolam - 10 MG Tablets", "Buprenorphine - 4MG/1MG", "Lorazepam 1 - MG Tablets", "Pregabalin - 75 MG Capsules", "Zolpidem - 5 MG Tablets"]
 
 #Array containing wholesaler inventory
 inventory = ["Atorvastatin 20 MG Tablets" , "Amoxicillin 500 MG Capsules", "Escitalopram 10 MG Tablets", "Guaifenesin 100 MG/5 ML ", "Hydrochlortiazide 12.5 MG Tablets", 
@@ -127,13 +126,13 @@ while not (logoff == True):
                 confirm = input()
                 confirm.lower()
 
-                eScript_refreshed = registrar + (technician)
+                registrar.append(technician)
 
                 print()
                 print('Successfully added ' + technician + ' to the registrar.')
 
                 print('Pharmacy registrar:')
-                print(eScript_refreshed)
+                print(registrar)
 
     #Will add to the list with security system 
     elif (key == '4'):
