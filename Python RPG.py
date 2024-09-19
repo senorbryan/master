@@ -54,19 +54,11 @@ class General:
         print("-Game Over-")
 
 
-    
-   
-
-
-
 #Variables
 increment = 0 + random.randint(2,7)
 level = 1
 victory = False
-win = 0
-matches = 0
 chance = 0
-experience = 0
 game_over = False
 run = False
 
@@ -75,7 +67,6 @@ maps = ["The Junkyard", "The Woods", "The Underpass", "Rules", "Stats"]
 junkyard_enemies = ["Mad Taxi", "Plague Rat of Doom", "Dirty Soap Bubble"]
 woods_enemies = ["Territorial Oak", "Sssssssneaky Snake", "Arachnid!"]
 underpass_enemies = ["Shallow Shallow Shadow", "Well-Nutritioned Deer", "Pineapple-Hating Squirrel"]
-credits = tuple("Thank You!")
 size = len(maps)
 
 #Entry prompt
@@ -116,8 +107,8 @@ space = input()
 print("Should your HP points fall to 0, you must start from the beginning. If you level up, you will replenish some health.")
 space = input()
 
-while not (player.HP <= 0 or win >= 5):
-
+while not (player.HP <= 0 or player.wins >= 5):
+    
     #Level Up Condition
     if (player.exp >= 827):
         print()
@@ -311,6 +302,16 @@ while not (player.HP <= 0 or win >= 5):
                     player.win()
 
                     break
+
+                else:
+                    enemy_hp = enemy_hp - damage
+                    dmg = str(damage)
+
+                    print(player.name + " attacked.")
+                    space = input()
+                    print()
+                    print(name + " dealt " + dmg + " damage.")
+                    print()
 
             #Enemy Attack Path
             attack = 5
@@ -594,7 +595,7 @@ while not (player.HP <= 0 or win >= 5):
             
             #Attack Condition
             if (choice == '1'):
-                damage = random.randint(10,20)
+                damage = random.randint(15,25)
                 critical = random.randint(1,100)
                 
                 #Critical Hit aspect
@@ -628,7 +629,7 @@ while not (player.HP <= 0 or win >= 5):
                     print()
 
                 #Enemy Attack Path
-                attack = random.randint(10,15)
+                attack = random.randint(10,17)
                 player.HP  = player.HP - attack
                 atk = str(attack)
                 health = str(player.HP)
@@ -676,7 +677,7 @@ while not (player.HP <= 0 or win >= 5):
 
         space = input()
         enemy = random.choice(woods_enemies)
-        enemy_hp = 0 + random.randint(25,50)
+        enemy_hp = 0 + random.randint(25,40)
 
         print("--You encounter a " + enemy + "!--")
         print()
@@ -716,7 +717,7 @@ while not (player.HP <= 0 or win >= 5):
 
             #Enemy Attack Path
             attack = 5
-            rage = random.randint(1,5)
+            rage = random.randint(1,6)
 
             #Rage Condition
             if (rage == 5):
@@ -917,7 +918,7 @@ while not (player.HP <= 0 or win >= 5):
 
 
 
-if (win >= 5):
+if (player.wins >= 5):
     player.victory()
 
 if (player.HP <= 0):
